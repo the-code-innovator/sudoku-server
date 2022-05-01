@@ -247,15 +247,15 @@ public class PuzzleElement5MapperService {
         return puzzleSegmentation5;
     }
 
-    public Byte[] generatePuzzleHashFromPuzzleElement5List(List<PuzzleElement5> puzzleElement5List) {
+    public byte[] generatePuzzleHashFromPuzzleElement5List(List<PuzzleElement5> puzzleElement5List) {
         return null;
     }
 
-    public Byte[] generatePositionHashFromPuzzleElement5List(List<PuzzleElement5> puzzleElement5List) {
+    public byte[] generatePositionHashFromPuzzleElement5List(List<PuzzleElement5> puzzleElement5List) {
         return null;
     }
 
-    public Byte[] generateHoleHashFromPuzzleElement5List(List<PuzzleElement5> puzzleElement5List) {
+    public byte[] generateHoleHashFromPuzzleElement5List(List<PuzzleElement5> puzzleElement5List) {
         return null;
     }
 }

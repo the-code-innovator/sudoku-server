@@ -168,15 +168,15 @@ public class PuzzleElement4MapperService {
         return puzzleSegmentation4;
     }
 
-    public Byte[] generatePuzzleHashFromPuzzleElement4List(List<PuzzleElement4> puzzleElement4List) {
+    public byte[] generatePuzzleHashFromPuzzleElement4List(List<PuzzleElement4> puzzleElement4List) {
         return null;
     }
 
-    public Byte[] generatePositionHashFromPuzzleElement4List(List<PuzzleElement4> puzzleElement4List) {
+    public byte[] generatePositionHashFromPuzzleElement4List(List<PuzzleElement4> puzzleElement4List) {
         return null;
     }
 
-    public Byte[] generateHoleHashFromPuzzleElement4List(List<PuzzleElement4> puzzleElement4List) {
+    public byte[] generateHoleHashFromPuzzleElement4List(List<PuzzleElement4> puzzleElement4List) {
         return null;
     }
 }

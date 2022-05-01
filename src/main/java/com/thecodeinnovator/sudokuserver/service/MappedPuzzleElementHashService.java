@@ -3,6 +3,7 @@ package com.thecodeinnovator.sudokuserver.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class MappedPuzzleElementHashService {
     @Autowired
     PuzzleElementNMapperService puzzleElementNMapperService;
 
-    public Byte[] generatePuzzleHashFromPuzzle(String[][] puzzle, int size) {
+    public byte[] generatePuzzleHashFromPuzzle(String[][] puzzle, int size) throws NoSuchAlgorithmException {
         switch (size) {
             case 1:
                 return puzzleElement1MapperService.generatePuzzleHashFromPuzzleElement1List(
@@ -71,10 +72,10 @@ public class MappedPuzzleElementHashService {
                     )
                 );
         }
-        return new Byte[1];
+        return new byte[1];
     }
 
-    public Byte[] generatePositionHashFromPuzzle(String[][] puzzle, int size) {
+    public byte[] generatePositionHashFromPuzzle(String[][] puzzle, int size) throws NoSuchAlgorithmException {
         switch (size) {
             case 1:
                 return puzzleElement1MapperService.generatePositionHashFromPuzzleElement1List(
@@ -107,10 +108,10 @@ public class MappedPuzzleElementHashService {
                     )
                 );
         }
-        return new Byte[1];
+        return new byte[1];
     }
 
-    public Byte[] generateHoleHashFromPuzzle(String[][] puzzle, int size) {
+    public byte[] generateHoleHashFromPuzzle(String[][] puzzle, int size) throws NoSuchAlgorithmException {
         switch (size) {
             case 1:
                 return puzzleElement1MapperService.generateHoleHashFromPuzzleElement1List(
@@ -143,23 +144,19 @@ public class MappedPuzzleElementHashService {
                     )
                 );
         }
-        return new Byte[1];
+        return new byte[1];
     }
 
     public List<PuzzleElementN> getPuzzleElementList(String[][] puzzle, int puzzleSize) {
         List<PuzzleElementN> puzzleSegmentation = new ArrayList<PuzzleElementN>();
-        int i = 0;
-        int j = 0;
-        for (String[] ithRow: puzzle) {
-            for (String jthColumn: ithRow) {
+        for (int i = 0; i < puzzle.length; i++) {
+            for (int j = 0; j < puzzle[0].length; j++) {
                 PuzzleElementN element = new PuzzleElementN();
                 element.setRow_index(i);
                 element.setColumn_index(j);
-                element.setIjPuzzleElement(puzzleElementMappingService.getMappedPuzzleElementEnum(jthColumn, puzzleSize));
+                element.setIjPuzzleElement(puzzleElementMappingService.getMappedPuzzleElementEnum(puzzle[i][j], puzzleSize));
                 puzzleSegmentation.add(element);
-                j++;
             }
-            i++;
         }
         return puzzleSegmentation;
     }

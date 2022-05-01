@@ -21,9 +21,9 @@ public class Puzzle {
     private String id;
     private String slug_id;
     private int size;
-    private Byte[] position_hash;
-    private Byte[] hole_hash;
-    private Byte[] puzzle_hash;
+    private byte[] position_hash;
+    private byte[] hole_hash;
+    private byte[] puzzle_hash;
     private boolean solved_flag;
     private int difficulty;
     private Date solved_on;

@@ -1,5 +1,7 @@
 package com.thecodeinnovator.sudokuserver.service.mapping;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +12,15 @@ import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize2;
 import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize3;
 import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSizeN;
 
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PuzzleElement3MapperService {
+
+    // private Logger logger = LoggerFactory.getLogger(PuzzleElement3MapperService.class);
+    
     public SudokuElementSize3 getSudokuElementSize3ForSudokuElementSize1(SudokuElementSize1 element) {
         switch (element) {
             case ELEMENT_0:
@@ -69,7 +76,7 @@ public class PuzzleElement3MapperService {
         }
     }
 
-    public int getIntegerRepresentationForSudokuElementsSize3(SudokuElementSize3 element) {
+    private int getIntegerRepresentationForSudokuElementsSize3(SudokuElementSize3 element) {
         switch (element) {
             case ELEMENT_0:
                 return 0;
@@ -112,15 +119,105 @@ public class PuzzleElement3MapperService {
         return puzzleSegmentation3;
     }
 
-    public Byte[] generatePuzzleHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) {
-        return null;
+    public byte[] generatePuzzleHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-1");
+        
+        byte[][] puzzleByteArrayMap = new byte[puzzleElement3List.size()][];
+        int i = 0;
+        for (PuzzleElement3 ithPuzzleElement3: puzzleElement3List) {
+            byte[] ithElementByteArray = new byte[3];
+            
+            int rowIndex = ithPuzzleElement3.getRow_index();
+            int columnIndex = ithPuzzleElement3.getColumn_index();
+            int ithElement = this.getIntegerRepresentationForSudokuElementsSize3(ithPuzzleElement3.getIjPuzzleElement());
+
+            ithElementByteArray[0] = (byte) rowIndex;
+            ithElementByteArray[1] = (byte) columnIndex;
+            ithElementByteArray[2] = (byte) ithElement;
+
+            puzzleByteArrayMap[i] = md.digest(ithElementByteArray);
+            i++;
+        }
+
+        int digestCount = puzzleByteArrayMap[0].length;
+        byte[] condensedArray = new byte[puzzleElement3List.size() * digestCount];
+        for (i = 0; i < puzzleElement3List.size(); i++) {
+            for (int j = 0; j < digestCount; j++) {
+                condensedArray[(i * digestCount) + j] = puzzleByteArrayMap[i][j];
+            }
+        }
+        
+        byte[] hashCondensedArray = md.digest(condensedArray);
+        return hashCondensedArray;
     }
 
-    public Byte[] generatePositionHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) {
-        return null;
+    public byte[] generatePositionHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-1");
+        
+        byte[][] puzzleByteArrayMap = new byte[puzzleElement3List.size()][];
+        int i = 0;
+        for (PuzzleElement3 ithPuzzleElement3: puzzleElement3List) {
+            byte[] ithElementByteArray = new byte[3];
+            
+            int rowIndex = ithPuzzleElement3.getRow_index();
+            int columnIndex = ithPuzzleElement3.getColumn_index();
+            int ithElement = this.getIntegerRepresentationForSudokuElementsSize3(ithPuzzleElement3.getIjPuzzleElement());
+
+            if (ithElement != 0) {
+                ithElementByteArray[0] = (byte) rowIndex;
+                ithElementByteArray[1] = (byte) columnIndex;
+                ithElementByteArray[2] = (byte) ithElement;
+                puzzleByteArrayMap[i] = md.digest(ithElementByteArray);
+                i++;
+            }
+        }
+
+        int limitCount = i;
+
+        int digestCount = puzzleByteArrayMap[0].length;
+        byte[] condensedArray = new byte[limitCount * digestCount];
+        for (i = 0; i < limitCount; i++) {
+            for (int j = 0; j < digestCount; j++) {
+                condensedArray[(i * digestCount) + j] = puzzleByteArrayMap[i][j];
+            }
+        }
+        
+        byte[] hashCondensedArray = md.digest(condensedArray);
+        return hashCondensedArray;
     }
 
-    public Byte[] generateHoleHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) {
-        return null;
+    public byte[] generateHoleHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-1");
+        
+        byte[][] puzzleByteArrayMap = new byte[puzzleElement3List.size()][];
+        int i = 0;
+        for (PuzzleElement3 ithPuzzleElement3: puzzleElement3List) {
+            byte[] ithElementByteArray = new byte[3];
+            
+            int rowIndex = ithPuzzleElement3.getRow_index();
+            int columnIndex = ithPuzzleElement3.getColumn_index();
+            int ithElement = this.getIntegerRepresentationForSudokuElementsSize3(ithPuzzleElement3.getIjPuzzleElement());
+
+            if (ithElement == 0) {
+                ithElementByteArray[0] = (byte) rowIndex;
+                ithElementByteArray[1] = (byte) columnIndex;
+                ithElementByteArray[2] = (byte) ithElement;
+                puzzleByteArrayMap[i] = md.digest(ithElementByteArray);
+                i++;
+            }
+        }
+
+        int limitCount = i;
+
+        int digestCount = puzzleByteArrayMap[0].length;
+        byte[] condensedArray = new byte[limitCount * digestCount];
+        for (i = 0; i < limitCount; i++) {
+            for (int j = 0; j < digestCount; j++) {
+                condensedArray[(i * digestCount) + j] = puzzleByteArrayMap[i][j];
+            }
+        }
+        
+        byte[] hashCondensedArray = md.digest(condensedArray);
+        return hashCondensedArray;
     }
 }

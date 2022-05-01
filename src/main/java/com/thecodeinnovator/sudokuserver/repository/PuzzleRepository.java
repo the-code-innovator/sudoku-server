@@ -8,5 +8,4 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PuzzleRepository extends CrudRepository<Puzzle, String> {
     List<Puzzle> findByDifficulty(int difficulty);
-    // Optional<Puzzle> findById(String id);
 }

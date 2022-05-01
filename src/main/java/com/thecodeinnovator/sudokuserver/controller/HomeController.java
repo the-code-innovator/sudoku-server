@@ -1,5 +1,6 @@
 package com.thecodeinnovator.sudokuserver.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
 import com.thecodeinnovator.sudokuserver.model.request.SavePuzzleRequestModel;
@@ -7,6 +8,7 @@ import com.thecodeinnovator.sudokuserver.service.PuzzleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -78,10 +80,19 @@ public class HomeController {
         try {
             result.put("status", "success");
             puzzleService.savePuzzleToDatabase(model);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (DataIntegrityViolationException e) {
             result.put("status", "failed");
+            try {
+                String slugID = puzzleService.getSlugID(model);
+                result.put("data", "slug_id = " + slugID + " already exists.");
+            } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
+                result.put("data", noSuchAlgorithmException.getMessage());
+            }
+        } catch (Exception e) {
+            result.put("status", "failed");
+            e.printStackTrace();
         }
         return result;
     }
+
 }
