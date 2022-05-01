@@ -20,17 +20,14 @@ public class SlugService {
     }
 
     public Byte[] generatePuzzleHashFromPuzzle(String[][] puzzle, int size) {
-        
         return null;
     }
 
     public Byte[] generatePositionHashFromPuzzle(String[][] puzzle, int size) {
-        
         return null;
     }
 
     public Byte[] generateHoleHashFromPuzzle(String[][] puzzle, int size) {
-        
         return null;
     }
 

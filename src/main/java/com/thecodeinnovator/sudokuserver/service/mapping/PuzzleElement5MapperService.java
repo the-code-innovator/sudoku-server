@@ -7,6 +7,12 @@ import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize4;
 import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize5;
 import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSizeN;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElement5;
+import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElementN;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -164,5 +170,21 @@ public class PuzzleElement5MapperService {
             default:
                 return SudokuElementSize5.ELEMENT_0;
         }
+    }
+
+    List<PuzzleElement5> getPuzzleElement5List(List<PuzzleElementN> puzzleSegmentationN) {
+        List<PuzzleElement5> puzzleSegmentation5 = new ArrayList<PuzzleElement5>();
+        for (PuzzleElementN ithPuzzleElementN: puzzleSegmentationN) {
+            int rowIndex = ithPuzzleElementN.getRow_index();
+            int columnIndex = ithPuzzleElementN.getColumn_index();
+            SudokuElementSizeN ithPuzzleElementNEnum = ithPuzzleElementN.getIjPuzzleElement();
+            SudokuElementSize5 ithPuzzleElement5Enum = this.getSudokuElementSize5ForSudokuElementSizeN(ithPuzzleElementNEnum);
+            PuzzleElement5 ithPuzzleElement5 = new PuzzleElement5();
+            ithPuzzleElement5.setRow_index(rowIndex);
+            ithPuzzleElement5.setColumn_index(columnIndex);
+            ithPuzzleElement5.setIjPuzzleElement(ithPuzzleElement5Enum);
+            puzzleSegmentation5.add(ithPuzzleElement5);
+        }
+        return puzzleSegmentation5;
     }
 }
