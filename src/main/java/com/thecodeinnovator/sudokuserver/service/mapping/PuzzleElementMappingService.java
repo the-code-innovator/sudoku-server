@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PuzzleElementMappingService {
-
     public SudokuElementSizeN getMappedPuzzleElementEnum(String jthColumn, int size) {
         switch (size) {
             case 1: 
@@ -182,7 +181,4 @@ public class PuzzleElementMappingService {
         }
         return SudokuElementSizeN.ELEMENT_0;
     }
-
-    
-
 }
