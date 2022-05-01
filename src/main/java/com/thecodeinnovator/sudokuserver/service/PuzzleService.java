@@ -34,42 +34,49 @@ public class PuzzleService {
         puzzle.setDifficulty(
             model.getDifficulty()
         );
-        puzzle.setCreated_by(
+        puzzle.setCreatedBy(
             model.getCreated_by()
         );
-        puzzle.setCreated_on(
+        puzzle.setCreatedOn(
             model.getCreated_on()
         );
         puzzle.setSize(
             model.getSize()
         );
-        puzzle.setSolved_by("");
-        puzzle.setSolved_flag(false);
+        puzzle.setSolvedBy("");
+        puzzle.setSolvedFlag(false);
 
-        puzzle.setHole_hash(
+        puzzle.setHoleHash(
             mappedPuzzleElementHashService.generateHoleHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
-        puzzle.setPosition_hash(
+        puzzle.setPositionHash(
             mappedPuzzleElementHashService.generatePositionHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
-        puzzle.setPuzzle_hash(
+        puzzle.setPuzzleHash(
             mappedPuzzleElementHashService.generatePuzzleHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
-        
-        puzzle.setSlug_id(
+
+        puzzle.setPuzzleData(
+            mappedPuzzleElementHashService.generatePuzzleDataFromPuzzle(
+                model.getPuzzle(),
+                model.getSize()
+            )
+        );
+
+        puzzle.setSlugId(
             slugService.generateSlugIDFromHash(
-                puzzle.getHole_hash(),
-                puzzle.getPosition_hash(),
-                puzzle.getPuzzle_hash(),
+                puzzle.getPuzzleHash(),
+                puzzle.getPositionHash(),
+                puzzle.getHoleHash(),
                 model.getSize()
             )
         );
@@ -81,45 +88,53 @@ public class PuzzleService {
         puzzle.setDifficulty(
             model.getDifficulty()
         );
-        puzzle.setCreated_by(
+        puzzle.setCreatedBy(
             model.getCreated_by()
         );
-        puzzle.setCreated_on(
+        puzzle.setCreatedOn(
             model.getCreated_on()
         );
         puzzle.setSize(
             model.getSize()
         );
-        puzzle.setSolved_by("");
-        puzzle.setSolved_flag(false);
+        puzzle.setSolvedBy("");
+        puzzle.setSolvedFlag(false);
 
-        puzzle.setHole_hash(
+        puzzle.setHoleHash(
             mappedPuzzleElementHashService.generateHoleHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
-        puzzle.setPosition_hash(
+        puzzle.setPositionHash(
             mappedPuzzleElementHashService.generatePositionHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
-        puzzle.setPuzzle_hash(
+        puzzle.setPuzzleHash(
             mappedPuzzleElementHashService.generatePuzzleHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
         
-        puzzle.setSlug_id(
+        puzzle.setSlugId(
             slugService.generateSlugIDFromHash(
-                puzzle.getHole_hash(),
-                puzzle.getPosition_hash(),
-                puzzle.getPuzzle_hash(),
+                puzzle.getPuzzleHash(),
+                puzzle.getPositionHash(),
+                puzzle.getHoleHash(),
                 model.getSize()
             )
         );
-        return puzzle.getSlug_id();
+        return puzzle.getSlugId();
+    }
+
+    public Puzzle getPuzzleBySlugID(String slugID) {
+        Puzzle puzzle = puzzleRepositoryServiceImpl.findBySlugId(slugID);
+
+        System.out.println(puzzle.toString());
+
+        return puzzle;
     }
 }

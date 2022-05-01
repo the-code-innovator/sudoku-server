@@ -2,6 +2,7 @@ package com.thecodeinnovator.sudokuserver.model.db;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,15 +20,17 @@ public class Puzzle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-    private String slug_id;
+    @Column(name = "slug_id")
+    private String slugId;
     private int size;
-    private byte[] position_hash;
-    private byte[] hole_hash;
-    private byte[] puzzle_hash;
-    private boolean solved_flag;
+    private byte[] positionHash;
+    private byte[] holeHash;
+    private byte[] puzzleHash;
+    private byte[] puzzleData;
+    private boolean solvedFlag;
     private int difficulty;
-    private Date solved_on;
-    private String solved_by;
-    private Date created_on;
-    private String created_by;
+    private Date solvedOn;
+    private String solvedBy;
+    private Date createdOn;
+    private String createdBy;
 }

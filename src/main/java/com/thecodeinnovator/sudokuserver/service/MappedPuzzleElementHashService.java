@@ -160,4 +160,40 @@ public class MappedPuzzleElementHashService {
         }
         return puzzleSegmentation;
     }
+
+    public byte[] generatePuzzleDataFromPuzzle(String[][] puzzle, int size) {
+        switch (size) {
+            case 1:
+                return puzzleElement1MapperService.generatePuzzleDataFromPuzzleElement1List(
+                    puzzleElement1MapperService.getPuzzleElement1List(
+                        this.getPuzzleElementList(puzzle, size)   
+                    )
+                );
+            case 2:
+                return puzzleElement2MapperService.generatePuzzleDataFromPuzzleElement2List(
+                    puzzleElement2MapperService.getPuzzleElement2List(
+                        this.getPuzzleElementList(puzzle, size)   
+                    )
+                );
+            case 3:
+                return puzzleElement3MapperService.generatePuzzleDataFromPuzzleElement3List(
+                    puzzleElement3MapperService.getPuzzleElement3List(
+                        this.getPuzzleElementList(puzzle, size)   
+                    )
+                );
+            case 4:
+                return puzzleElement4MapperService.generatePuzzleDataFromPuzzleElement4List(
+                    puzzleElement4MapperService.getPuzzleElement4List(
+                        this.getPuzzleElementList(puzzle, size)   
+                    )
+                );
+            case 5:
+                return puzzleElement5MapperService.generatePuzzleDataFromPuzzleElement5List(
+                    puzzleElement5MapperService.getPuzzleElement5List(
+                        this.getPuzzleElementList(puzzle, size)   
+                    )
+                );
+        }
+        return new byte[1];
+    }
 }

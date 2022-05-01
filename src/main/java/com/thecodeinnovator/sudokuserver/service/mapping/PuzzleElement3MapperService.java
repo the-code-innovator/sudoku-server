@@ -220,4 +220,23 @@ public class PuzzleElement3MapperService {
         byte[] hashCondensedArray = md.digest(condensedArray);
         return hashCondensedArray;
     }
+
+    public byte[] generatePuzzleDataFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) {
+        int i = 0;
+        byte[] puzzleDataArray = new byte[puzzleElement3List.size() * 3];
+        for (PuzzleElement3 ithPuzzleElement3: puzzleElement3List) {
+            // byte[] ithElementByteArray = new byte[3];
+            
+            int rowIndex = ithPuzzleElement3.getRow_index();
+            int columnIndex = ithPuzzleElement3.getColumn_index();
+            int ithElement = this.getIntegerRepresentationForSudokuElementsSize3(ithPuzzleElement3.getIjPuzzleElement());
+
+            puzzleDataArray[(i * 3) + 0] = (byte) rowIndex;
+            puzzleDataArray[(i * 3) + 1] = (byte) columnIndex;
+            puzzleDataArray[(i * 3) + 2] = (byte) ithElement;
+            
+            i++;
+        }
+        return puzzleDataArray;
+    }
 }

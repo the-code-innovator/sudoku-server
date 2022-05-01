@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -95,4 +96,16 @@ public class HomeController {
         return result;
     }
 
+    @GetMapping(value = "{slug_id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HashMap<String, Object> getPuzzleBySlugID(@PathVariable(value = "slug_id") String slugID) {
+        HashMap<String, Object> result = new HashMap<String, Object>();
+        try {
+            result.put("status", "success");
+            result.put("data", puzzleService.getPuzzleBySlugID(slugID));
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status", "failed");
+        }
+        return result;
+    }
 }

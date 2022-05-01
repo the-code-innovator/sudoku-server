@@ -85,4 +85,8 @@ public class PuzzleElement2MapperService {
     public byte[] generateHoleHashFromPuzzleElement2List(List<PuzzleElement2> puzzleElement2List) {
         return null;
     }
+
+    public byte[] generatePuzzleDataFromPuzzleElement2List(List<PuzzleElement2> puzzleElement2List) {
+        return null;
+    }
 }

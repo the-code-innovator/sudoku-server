@@ -14,4 +14,5 @@ public interface PuzzleRepositoryService {
 
     void save(Puzzle puzzle);
 
+    Optional<Puzzle> findBySlugID(String slugID);
 }

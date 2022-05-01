@@ -18,6 +18,10 @@ public class PuzzleRepositoryServiceImpl {
     Optional<Puzzle> findById(String id) {
         return puzzleRepository.findById(id);
     }
+    
+    Puzzle findBySlugId(String slugID) {
+        return puzzleRepository.findBySlugId(slugID);
+    }
 
     List<Puzzle> findByDifficulty(int difficulty) {
         return puzzleRepository.findByDifficulty(difficulty);
@@ -26,4 +30,5 @@ public class PuzzleRepositoryServiceImpl {
     void save(Puzzle puzzle) {
         puzzleRepository.save(puzzle);
     }
+
 }
