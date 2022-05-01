@@ -74,7 +74,14 @@ public class HomeController {
 
     @PostMapping(value = "save_puzzle", consumes = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, Object> savePuzzleToDatabase(@RequestBody SavePuzzleRequestModel model) {
-        return null;
-        
+        HashMap<String, Object> result = new HashMap<String, Object>();
+        try {
+            result.put("status", "success");
+            result.put("data", puzzleService.savePuzzleToDatabase(model));
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("status", "failed");
+        }
+        return result;
     }
 }

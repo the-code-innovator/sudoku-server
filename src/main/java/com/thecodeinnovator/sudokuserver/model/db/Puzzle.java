@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.model;
+package com.thecodeinnovator.sudokuserver.model.db;
 
 import java.util.Date;
 

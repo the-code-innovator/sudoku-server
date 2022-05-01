@@ -3,7 +3,8 @@ package com.thecodeinnovator.sudokuserver.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.thecodeinnovator.sudokuserver.model.Puzzle;
+import com.thecodeinnovator.sudokuserver.model.db.Puzzle;
+import com.thecodeinnovator.sudokuserver.model.request.SavePuzzleRequestModel;
 import com.thecodeinnovator.sudokuserver.repository.PuzzleRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,32 @@ public class PuzzleService {
     @Autowired
     PuzzleRepository puzzleRepository;
 
+    @Autowired
+    SlugService slugService;
+
     public Optional<Puzzle> fetchPuzzleWithID(String id) {
         return puzzleRepository.findById(id);
     }
 
     public List<Puzzle> fetchByDifficulty(int difficulty) {
         return puzzleRepository.findByDifficulty(difficulty);
+    }
+
+    public Puzzle savePuzzleToDatabase(SavePuzzleRequestModel model) {
+        Puzzle puzzle = new Puzzle();
+        puzzle.setDifficulty(model.getDifficulty());
+        puzzle.setCreated_by(model.getCreated_by());
+        puzzle.setCreated_on(model.getCreated_on());
+        puzzle.setSize(model.getSize());
+        puzzle.setSolved_by("");
+        puzzle.setSolved_flag(false);
+
+        puzzle.setHole_hash(slugService.generateHoleHashFromPuzzle(model.getPuzzle(), model.getSize()));
+        puzzle.setPosition_hash(slugService.generatePositionHashFromPuzzle(model.getPuzzle(), model.getSize()));
+        puzzle.setPuzzle_hash(slugService.generatePuzzleHashFromPuzzle(model.getPuzzle(), model.getSize()));
+        
+        puzzle.setSlug_id(slugService.generateSlugIDFromHash(puzzle.getHole_hash(), puzzle.getPosition_hash(), puzzle.getPuzzle_hash()));
+        
+        return puzzleRepository.save(puzzle);
     }
 }
