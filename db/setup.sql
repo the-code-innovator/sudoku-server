@@ -1,11 +1,11 @@
 DROP TABLE sudoku.puzzle;
 
-DROP SEQUENCE puzzle_sequence;
+DROP SEQUENCE sudoku.puzzle_sequence;
 
-CREATE SEQUENCE puzzle_sequence;
+CREATE SEQUENCE sudoku.puzzle_sequence;
 
 CREATE TABLE sudoku.puzzle (
-    "id" INTEGER NOT NULL DEFAULT NEXTVAL('puzzle_sequence') UNIQUE PRIMARY KEY,
+    "id" VARCHAR(20) NOT NULL DEFAULT NEXTVAL('sudoku.puzzle_sequence') UNIQUE PRIMARY KEY,
     "slug_id" VARCHAR(20) NOT NULL,
     "size" INTEGER NOT NULL,
     "position_hash" BYTEA NOT NULL,
@@ -22,3 +22,5 @@ INSERT INTO sudoku.puzzle (slug_id, size, position_hash, hole_hash, puzzle_hash,
 SELECT * FROM sudoku.puzzle;
 
 DELETE FROM sudoku.puzzle;
+
+GRANT ALL ON SCHEMA sudoku to sudokuapp;
