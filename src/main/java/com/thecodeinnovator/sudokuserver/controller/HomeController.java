@@ -2,12 +2,15 @@ package com.thecodeinnovator.sudokuserver.controller;
 
 import java.util.HashMap;
 
+import com.thecodeinnovator.sudokuserver.model.request.SavePuzzleRequestModel;
 import com.thecodeinnovator.sudokuserver.service.PuzzleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -67,5 +70,11 @@ public class HomeController {
             result.put("status", "failed");
         }
         return result;
+    }
+
+    @PostMapping(value = "save_puzzle", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HashMap<String, Object> savePuzzleToDatabase(@RequestBody SavePuzzleRequestModel model) {
+        return null;
+        
     }
 }

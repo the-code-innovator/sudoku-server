@@ -13,14 +13,14 @@ CREATE TABLE sudoku.puzzle (
     "puzzle_hash" BYTEA NOT NULL,
     "solved_flag" BOOLEAN NOT NULL,
     "difficulty" INTEGER NOT NULL,
-    "solved_on" DATE NOT NULL DEFAULT CURRENT_DATE,
-    "solved_by" VARCHAR(80) NOT NULL
+    "solved_on" DATE,
+    "solved_by" VARCHAR(80),
+    "created_on" DATE NOT NULL DEFAULT CURRENT_DATE,
+    "created_by" VARCHAR(80) NOT NULL
 );
 
-INSERT INTO sudoku.puzzle (slug_id, size, position_hash, hole_hash, puzzle_hash, solved_flag, difficulty, solved_on, solved_by) VALUES ('abcd', 9, '\x00000000', '\x00000000', '\x00000000', false, 0, TO_DATE('2022-05-04', 'YYYY-MM-DD'), 'aravind');
+INSERT INTO sudoku.puzzle (slug_id, size, position_hash, hole_hash, puzzle_hash, solved_flag, difficulty, created_on, created_by) VALUES ('abcd', 9, '\x00000000', '\x00000000', '\x00000000', false, 0, TO_DATE('2022-05-01 19:48:20.000+05:30', 'yyyy-MM-dd'), 'aravind');
 
 SELECT * FROM sudoku.puzzle;
 
 DELETE FROM sudoku.puzzle;
-
-GRANT ALL ON SCHEMA sudoku to sudokuapp;
