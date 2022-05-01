@@ -18,6 +18,9 @@ public class PuzzleService {
     @Autowired
     SlugService slugService;
 
+    @Autowired
+    MappedPuzzleElementHashService mappedPuzzleElementHashService;
+
     public Optional<Puzzle> fetchPuzzleWithID(String id) {
         return puzzleRepository.findById(id);
     }
@@ -44,19 +47,19 @@ public class PuzzleService {
         puzzle.setSolved_flag(false);
 
         puzzle.setHole_hash(
-            slugService.generateHoleHashFromPuzzle(
+            mappedPuzzleElementHashService.generateHoleHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
         puzzle.setPosition_hash(
-            slugService.generatePositionHashFromPuzzle(
+            mappedPuzzleElementHashService.generatePositionHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )
         );
         puzzle.setPuzzle_hash(
-            slugService.generatePuzzleHashFromPuzzle(
+            mappedPuzzleElementHashService.generatePuzzleHashFromPuzzle(
                 model.getPuzzle(),
                 model.getSize()
             )

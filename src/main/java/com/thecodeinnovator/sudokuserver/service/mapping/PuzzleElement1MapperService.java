@@ -39,6 +39,17 @@ public class PuzzleElement1MapperService {
         return puzzleSegmentation1;
     }
 
+    public int getIntegerRepresentationForSudokuElementsSize1(SudokuElementSize1 element) {
+        switch (element) {
+            case ELEMENT_0:
+                return 0;
+            case ELEMENT_1:
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
     public Byte[] generatePuzzleHashFromPuzzleElement1List(List<PuzzleElement1> puzzleElement1List) {
         return null;
     }

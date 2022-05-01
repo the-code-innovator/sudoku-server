@@ -69,6 +69,33 @@ public class PuzzleElement3MapperService {
         }
     }
 
+    public int getIntegerRepresentationForSudokuElementsSize3(SudokuElementSize3 element) {
+        switch (element) {
+            case ELEMENT_0:
+                return 0;
+            case ELEMENT_1:
+                return 1;
+            case ELEMENT_2:
+                return 2;
+            case ELEMENT_3:
+                return 3;
+            case ELEMENT_4:
+                return 4;
+            case ELEMENT_5:
+                return 5;
+            case ELEMENT_6:
+                return 6;
+            case ELEMENT_7:
+                return 7;
+            case ELEMENT_8:
+                return 8;
+            case ELEMENT_9:
+                return 9;
+            default:
+                return 0;
+        }
+    }
+
     public List<PuzzleElement3> getPuzzleElement3List(List<PuzzleElementN> puzzleSegmentationN) {
         List<PuzzleElement3> puzzleSegmentation3 = new ArrayList<PuzzleElement3>();
         for (PuzzleElementN ithPuzzleElementN: puzzleSegmentationN) {

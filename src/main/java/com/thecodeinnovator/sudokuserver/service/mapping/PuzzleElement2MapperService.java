@@ -41,6 +41,23 @@ public class PuzzleElement2MapperService {
         }
     }
 
+    public int getIntegerRepresentationForSudokuElementsSize2(SudokuElementSize2 element) {
+        switch (element) {
+            case ELEMENT_0:
+                return 0;
+            case ELEMENT_1:
+                return 1;
+            case ELEMENT_2:
+                return 2;
+            case ELEMENT_3:
+                return 3;
+            case ELEMENT_4:
+                return 4;
+            default:
+                return 0;
+        }
+    }
+
     public List<PuzzleElement2> getPuzzleElement2List(List<PuzzleElementN> puzzleSegmentationN) {
         List<PuzzleElement2> puzzleSegmentation2 = new ArrayList<PuzzleElement2>();
         for (PuzzleElementN ithPuzzleElementN: puzzleSegmentationN) {
