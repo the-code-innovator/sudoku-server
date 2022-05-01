@@ -3,10 +3,10 @@ package com.thecodeinnovator.sudokuserver.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElementN;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElement;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElementMappingService;
 
 
 @Service
@@ -34,13 +34,13 @@ public class SlugService {
         return null;
     }
 
-    public List<PuzzleElement> getPuzzleElementList(String[][] puzzle, int puzzleSize) {
-        List<PuzzleElement> puzzleSegmentation = new ArrayList<PuzzleElement>();
+    public List<PuzzleElementN> getPuzzleElementList(String[][] puzzle, int puzzleSize) {
+        List<PuzzleElementN> puzzleSegmentation = new ArrayList<PuzzleElementN>();
         int i = 0;
         int j = 0;
         for (String[] ithRow: puzzle) {
             for (String jthColumn: ithRow) {
-                PuzzleElement element = new PuzzleElement();
+                PuzzleElementN element = new PuzzleElementN();
                 element.setRow_index(i);
                 element.setColumn_index(j);
                 element.setIjPuzzleElement(puzzleElementMappingService.getMappedPuzzleElementEnum(jthColumn, puzzleSize));

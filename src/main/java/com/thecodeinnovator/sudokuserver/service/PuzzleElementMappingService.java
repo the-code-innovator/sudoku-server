@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.service.mapping;
+package com.thecodeinnovator.sudokuserver.service;
 
 import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSizeN;
 

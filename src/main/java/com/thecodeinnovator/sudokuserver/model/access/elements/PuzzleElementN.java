@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.model.access;
+package com.thecodeinnovator.sudokuserver.model.access.elements;
 
 import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSizeN;
 
@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PuzzleElement {
+public class PuzzleElementN {
     private int row_index;
     private int column_index;
     private SudokuElementSizeN ijPuzzleElement;

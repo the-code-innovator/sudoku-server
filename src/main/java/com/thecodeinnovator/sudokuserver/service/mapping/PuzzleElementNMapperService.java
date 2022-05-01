@@ -18,8 +18,9 @@ public class PuzzleElementNMapperService {
                 return SudokuElementSizeN.ELEMENT_0;
             case ELEMENT_1:
                 return SudokuElementSizeN.ELEMENT_1;
+            default:
+                return SudokuElementSizeN.ELEMENT_0;
         }
-        return SudokuElementSizeN.ELEMENT_0;
     }
 
     public SudokuElementSizeN gSudokuElementSizeNForSudokuElementSize2(SudokuElementSize2 element) {
@@ -34,8 +35,9 @@ public class PuzzleElementNMapperService {
                 return SudokuElementSizeN.ELEMENT_3;
             case ELEMENT_4:
                 return SudokuElementSizeN.ELEMENT_4;
+            default:
+                return SudokuElementSizeN.ELEMENT_0;
         }
-        return SudokuElementSizeN.ELEMENT_0;
     }
 
     public SudokuElementSizeN gSudokuElementSizeNForSudokuElementSize3(SudokuElementSize3 element) {
@@ -60,8 +62,9 @@ public class PuzzleElementNMapperService {
                 return SudokuElementSizeN.ELEMENT_8;
             case ELEMENT_9:
                 return SudokuElementSizeN.ELEMENT_9;
+            default:
+                return SudokuElementSizeN.ELEMENT_0;
         }
-        return SudokuElementSizeN.ELEMENT_0;
     }
 
     public SudokuElementSizeN gSudokuElementSizeNForSudokuElementSize4(SudokuElementSize4 element) {
@@ -100,8 +103,9 @@ public class PuzzleElementNMapperService {
                 return SudokuElementSizeN.ELEMENT_15;
             case ELEMENT_16:
                 return SudokuElementSizeN.ELEMENT_16;
+            default:
+                return SudokuElementSizeN.ELEMENT_0;
         }
-        return SudokuElementSizeN.ELEMENT_0;
     }
 
     public SudokuElementSizeN gSudokuElementSizeNForSudokuElementSize5(SudokuElementSize5 element) {
@@ -158,7 +162,8 @@ public class PuzzleElementNMapperService {
                 return SudokuElementSizeN.ELEMENT_24;
             case ELEMENT_25:
                 return SudokuElementSizeN.ELEMENT_25;
+            default:
+                return SudokuElementSizeN.ELEMENT_0;
         }
-        return SudokuElementSizeN.ELEMENT_0;
     }
 }
