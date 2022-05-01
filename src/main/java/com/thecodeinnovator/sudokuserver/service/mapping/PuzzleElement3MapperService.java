@@ -69,7 +69,7 @@ public class PuzzleElement3MapperService {
         }
     }
 
-    List<PuzzleElement3> getPuzzleElement3List(List<PuzzleElementN> puzzleSegmentationN) {
+    public List<PuzzleElement3> getPuzzleElement3List(List<PuzzleElementN> puzzleSegmentationN) {
         List<PuzzleElement3> puzzleSegmentation3 = new ArrayList<PuzzleElement3>();
         for (PuzzleElementN ithPuzzleElementN: puzzleSegmentationN) {
             int rowIndex = ithPuzzleElementN.getRow_index();
@@ -83,5 +83,17 @@ public class PuzzleElement3MapperService {
             puzzleSegmentation3.add(ithPuzzleElement3);
         }
         return puzzleSegmentation3;
+    }
+
+    public Byte[] generatePuzzleHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) {
+        return null;
+    }
+
+    public Byte[] generatePositionHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) {
+        return null;
+    }
+
+    public Byte[] generateHoleHashFromPuzzleElement3List(List<PuzzleElement3> puzzleElement3List) {
+        return null;
     }
 }

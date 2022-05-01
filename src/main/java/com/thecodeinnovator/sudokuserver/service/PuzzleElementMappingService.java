@@ -104,19 +104,19 @@ public class PuzzleElementMappingService {
                 return SudokuElementSizeN.ELEMENT_8;
             case "9":
                 return SudokuElementSizeN.ELEMENT_9;
-            case "10":
+            case "A":
                 return SudokuElementSizeN.ELEMENT_10;
-            case "11":
+            case "B":
                 return SudokuElementSizeN.ELEMENT_11;
-            case "12":
+            case "C":
                 return SudokuElementSizeN.ELEMENT_12;
-            case "13":
+            case "D":
                 return SudokuElementSizeN.ELEMENT_13;
-            case "14":
+            case "E":
                 return SudokuElementSizeN.ELEMENT_14;
-            case "15":
+            case "F":
                 return SudokuElementSizeN.ELEMENT_15;
-            case "16":
+            case "G":
                 return SudokuElementSizeN.ELEMENT_16;
         }
         return SudokuElementSizeN.ELEMENT_0;
@@ -146,37 +146,37 @@ public class PuzzleElementMappingService {
                 return SudokuElementSizeN.ELEMENT_8;
             case "9":
                 return SudokuElementSizeN.ELEMENT_9;
-            case "10":
+            case "A":
                 return SudokuElementSizeN.ELEMENT_10;
-            case "11":
+            case "B":
                 return SudokuElementSizeN.ELEMENT_11;
-            case "12":
+            case "C":
                 return SudokuElementSizeN.ELEMENT_12;
-            case "13":
+            case "D":
                 return SudokuElementSizeN.ELEMENT_13;
-            case "14":
+            case "E":
                 return SudokuElementSizeN.ELEMENT_14;
-            case "15":
+            case "F":
                 return SudokuElementSizeN.ELEMENT_15;
-            case "16":
+            case "G":
                 return SudokuElementSizeN.ELEMENT_16;
-            case "17":
+            case "H":
                 return SudokuElementSizeN.ELEMENT_17;
-            case "18":
+            case "I":
                 return SudokuElementSizeN.ELEMENT_18;
-            case "19":
+            case "J":
                 return SudokuElementSizeN.ELEMENT_19;
-            case "20":
+            case "K":
                 return SudokuElementSizeN.ELEMENT_20;
-            case "21":
+            case "L":
                 return SudokuElementSizeN.ELEMENT_21;
-            case "22":
+            case "M":
                 return SudokuElementSizeN.ELEMENT_22;
-            case "23":
+            case "N":
                 return SudokuElementSizeN.ELEMENT_23;
-            case "24":
+            case "O":
                 return SudokuElementSizeN.ELEMENT_24;
-            case "25":
+            case "P":
                 return SudokuElementSizeN.ELEMENT_25;
         }
         return SudokuElementSizeN.ELEMENT_0;

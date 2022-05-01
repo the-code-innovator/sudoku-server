@@ -26,21 +26,50 @@ public class PuzzleService {
         return puzzleRepository.findByDifficulty(difficulty);
     }
 
-    public Puzzle savePuzzleToDatabase(SavePuzzleRequestModel model) {
+    public void savePuzzleToDatabase(SavePuzzleRequestModel model) {
         Puzzle puzzle = new Puzzle();
-        puzzle.setDifficulty(model.getDifficulty());
-        puzzle.setCreated_by(model.getCreated_by());
-        puzzle.setCreated_on(model.getCreated_on());
-        puzzle.setSize(model.getSize());
+        puzzle.setDifficulty(
+            model.getDifficulty()
+        );
+        puzzle.setCreated_by(
+            model.getCreated_by()
+        );
+        puzzle.setCreated_on(
+            model.getCreated_on()
+        );
+        puzzle.setSize(
+            model.getSize()
+        );
         puzzle.setSolved_by("");
         puzzle.setSolved_flag(false);
 
-        puzzle.setHole_hash(slugService.generateHoleHashFromPuzzle(model.getPuzzle(), model.getSize()));
-        puzzle.setPosition_hash(slugService.generatePositionHashFromPuzzle(model.getPuzzle(), model.getSize()));
-        puzzle.setPuzzle_hash(slugService.generatePuzzleHashFromPuzzle(model.getPuzzle(), model.getSize()));
+        puzzle.setHole_hash(
+            slugService.generateHoleHashFromPuzzle(
+                model.getPuzzle(),
+                model.getSize()
+            )
+        );
+        puzzle.setPosition_hash(
+            slugService.generatePositionHashFromPuzzle(
+                model.getPuzzle(),
+                model.getSize()
+            )
+        );
+        puzzle.setPuzzle_hash(
+            slugService.generatePuzzleHashFromPuzzle(
+                model.getPuzzle(),
+                model.getSize()
+            )
+        );
         
-        puzzle.setSlug_id(slugService.generateSlugIDFromHash(puzzle.getHole_hash(), puzzle.getPosition_hash(), puzzle.getPuzzle_hash()));
-        
-        return puzzleRepository.save(puzzle);
+        puzzle.setSlug_id(
+            slugService.generateSlugIDFromHash(
+                puzzle.getHole_hash(),
+                puzzle.getPosition_hash(),
+                puzzle.getPuzzle_hash(),
+                model.getSize()
+            )
+        );
+        puzzleRepository.save(puzzle);
     }
 }

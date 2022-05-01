@@ -77,7 +77,7 @@ public class HomeController {
         HashMap<String, Object> result = new HashMap<String, Object>();
         try {
             result.put("status", "success");
-            result.put("data", puzzleService.savePuzzleToDatabase(model));
+            puzzleService.savePuzzleToDatabase(model);
         } catch (Exception e) {
             e.printStackTrace();
             result.put("status", "failed");
