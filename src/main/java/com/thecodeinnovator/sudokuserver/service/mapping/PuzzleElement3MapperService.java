@@ -5,12 +5,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize1;
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize2;
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize3;
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSizeN;
 import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElement3;
 import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElementN;
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize1;
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize2;
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize3;
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSizeN;
 
 // import org.slf4j.Logger;
 // import org.slf4j.LoggerFactory;

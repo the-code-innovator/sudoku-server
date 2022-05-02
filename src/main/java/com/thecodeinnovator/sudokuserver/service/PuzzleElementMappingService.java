@@ -1,6 +1,6 @@
 package com.thecodeinnovator.sudokuserver.service;
 
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSizeN;
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSizeN;
 
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.thecodeinnovator.sudokuserver.puzzleenum;
+package com.thecodeinnovator.sudokuserver.enums;
 
-public enum SudokuElementSize5 {
+public enum SudokuElementSize4 {
     ELEMENT_0,
     ELEMENT_1,
     ELEMENT_2,
@@ -17,14 +17,5 @@ public enum SudokuElementSize5 {
     ELEMENT_13,
     ELEMENT_14,
     ELEMENT_15,
-    ELEMENT_16,
-    ELEMENT_17,
-    ELEMENT_18,
-    ELEMENT_19,
-    ELEMENT_20,
-    ELEMENT_21,
-    ELEMENT_22,
-    ELEMENT_23,
-    ELEMENT_24,
-    ELEMENT_25
+    ELEMENT_16
 }

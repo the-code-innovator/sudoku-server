@@ -3,11 +3,11 @@ package com.thecodeinnovator.sudokuserver.service.mapping;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize1;
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize2;
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSizeN;
 import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElement2;
 import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElementN;
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize1;
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize2;
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSizeN;
 
 import org.springframework.stereotype.Service;
 

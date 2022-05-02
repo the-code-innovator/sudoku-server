@@ -1,6 +1,6 @@
 package com.thecodeinnovator.sudokuserver.model.access.elements;
 
-import com.thecodeinnovator.sudokuserver.puzzleenum.SudokuElementSize2;
+import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize2;
 
 import lombok.Getter;
 import lombok.Setter;

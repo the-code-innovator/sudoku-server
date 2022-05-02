@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.puzzleenum;
+package com.thecodeinnovator.sudokuserver.enums;
 
 public enum SudokuElementSize2 {
     ELEMENT_0,
