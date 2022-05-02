@@ -1,11 +1,13 @@
 package com.thecodeinnovator.sudokuserver.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Formatter;
 import java.util.List;
 import java.util.Optional;
 
 import com.thecodeinnovator.sudokuserver.model.db.Puzzle;
 import com.thecodeinnovator.sudokuserver.model.request.SavePuzzleRequestModel;
+import com.thecodeinnovator.sudokuserver.model.ui.PuzzleUIModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -130,11 +132,45 @@ public class PuzzleService {
         return puzzle.getSlugId();
     }
 
-    public Puzzle getPuzzleBySlugID(String slugID) {
+    public PuzzleUIModel getPuzzleBySlugID(String slugID) {
         Puzzle puzzle = puzzleRepositoryServiceImpl.findBySlugId(slugID);
 
-        System.out.println(puzzle.toString());
+        byte[] puzzleData = puzzle.getPuzzleData();
+        int items = puzzleData.length / 3;
+        int size = puzzle.getSize();
+        int rowLength = size * size;
 
-        return puzzle;
+        int[][] puzzleDataInt = new int[rowLength][rowLength];
+        for (int i = 0; i < items; i++) {
+            int rowIndex = puzzleData[(i * 3) + 0];
+            int columnIndex = puzzleData[(i * 3) + 1];
+            int data = puzzleData[(i * 3) + 2];
+            puzzleDataInt[rowIndex][columnIndex] = data;
+        }
+
+        String puzzleHashString = this.byteArray2Hex(puzzle.getPuzzleHash());
+
+        PuzzleUIModel model = new PuzzleUIModel();
+        model.setCreatedBy(puzzle.getCreatedBy());
+        model.setCreatedOn(puzzle.getCreatedOn());
+        model.setDifficulty(puzzle.getDifficulty());
+        model.setPuzzleData(puzzleDataInt);
+        model.setPuzzleHash(puzzleHashString);
+        model.setSize(puzzle.getSize());
+        model.setSlugId(puzzle.getSlugId());
+        model.setSolvedBy(puzzle.getSolvedBy());
+        model.setSolvedOn(puzzle.getSolvedOn());
+        model.setSolvedFlag(puzzle.isSolvedFlag());
+
+        return model;
+    }
+
+    private String byteArray2Hex(byte[] hash) {
+        try (Formatter formatter = new Formatter()) {
+            for (byte b : hash) {
+                formatter.format("%02x", b);
+            }
+            return formatter.toString();
+        }
     }
 }
