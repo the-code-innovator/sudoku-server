@@ -1,10 +1,10 @@
-package com.thecodeinnovator.sudokuserver.controller;
+package com.thecodeinnovator.sudokuserver.specific.controller;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
-import com.thecodeinnovator.sudokuserver.model.request.SavePuzzleRequestModel;
-import com.thecodeinnovator.sudokuserver.service.PuzzleService;
+import com.thecodeinnovator.sudokuserver.specific.model.request.SavePuzzleRequestModel;
+import com.thecodeinnovator.sudokuserver.specific.service.PuzzleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

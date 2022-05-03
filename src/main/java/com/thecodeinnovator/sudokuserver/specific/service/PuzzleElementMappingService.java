@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.service;
+package com.thecodeinnovator.sudokuserver.specific.service;
 
 import com.thecodeinnovator.sudokuserver.enums.SudokuElementSizeN;
 

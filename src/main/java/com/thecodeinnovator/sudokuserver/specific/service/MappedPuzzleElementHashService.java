@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.service;
+package com.thecodeinnovator.sudokuserver.specific.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,9 +7,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElementN;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElementNMapperService;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElementUtilityService;
+import com.thecodeinnovator.sudokuserver.specific.model.access.PuzzleElementN;
+import com.thecodeinnovator.sudokuserver.specific.service.mapping.PuzzleElementNMapperService;
+import com.thecodeinnovator.sudokuserver.specific.service.mapping.PuzzleElementUtilityService;
 
 @Service
 public class MappedPuzzleElementHashService {

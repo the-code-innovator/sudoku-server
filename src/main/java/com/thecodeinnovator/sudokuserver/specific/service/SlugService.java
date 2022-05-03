@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.service;
+package com.thecodeinnovator.sudokuserver.specific.service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

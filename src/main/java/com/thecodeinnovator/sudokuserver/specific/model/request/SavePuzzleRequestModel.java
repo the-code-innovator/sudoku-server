@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.model.request;
+package com.thecodeinnovator.sudokuserver.specific.model.request;
 
 import java.sql.Date;
 

@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.service.mapping;
+package com.thecodeinnovator.sudokuserver.specific.service.mapping;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -11,12 +11,12 @@ import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize3;
 import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize4;
 import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize5;
 import com.thecodeinnovator.sudokuserver.enums.SudokuElementSizeN;
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElement1;
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElement2;
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElement3;
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElement4;
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElement5;
-import com.thecodeinnovator.sudokuserver.model.access.PuzzleElementN;
+import com.thecodeinnovator.sudokuserver.specific.model.access.PuzzleElement1;
+import com.thecodeinnovator.sudokuserver.specific.model.access.PuzzleElement2;
+import com.thecodeinnovator.sudokuserver.specific.model.access.PuzzleElement3;
+import com.thecodeinnovator.sudokuserver.specific.model.access.PuzzleElement4;
+import com.thecodeinnovator.sudokuserver.specific.model.access.PuzzleElement5;
+import com.thecodeinnovator.sudokuserver.specific.model.access.PuzzleElementN;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

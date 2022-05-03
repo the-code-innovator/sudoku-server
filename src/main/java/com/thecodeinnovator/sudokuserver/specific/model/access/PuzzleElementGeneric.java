@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.model.access;
+package com.thecodeinnovator.sudokuserver.specific.model.access;
 
 import lombok.Getter;
 import lombok.Setter;

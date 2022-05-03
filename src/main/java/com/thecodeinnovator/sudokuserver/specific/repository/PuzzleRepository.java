@@ -1,8 +1,8 @@
-package com.thecodeinnovator.sudokuserver.repository;
+package com.thecodeinnovator.sudokuserver.specific.repository;
 
 import java.util.List;
 
-import com.thecodeinnovator.sudokuserver.model.db.Puzzle;
+import com.thecodeinnovator.sudokuserver.specific.model.db.Puzzle;
 
 import org.springframework.data.repository.CrudRepository;
 

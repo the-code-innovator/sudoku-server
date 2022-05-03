@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.service.mapping;
+package com.thecodeinnovator.sudokuserver.specific.service.mapping;
 
 import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize1;
 import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize2;

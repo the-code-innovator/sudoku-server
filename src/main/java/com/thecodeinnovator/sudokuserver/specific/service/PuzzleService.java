@@ -1,13 +1,13 @@
-package com.thecodeinnovator.sudokuserver.service;
+package com.thecodeinnovator.sudokuserver.specific.service;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
 import java.util.List;
 import java.util.Optional;
 
-import com.thecodeinnovator.sudokuserver.model.db.Puzzle;
-import com.thecodeinnovator.sudokuserver.model.request.SavePuzzleRequestModel;
-import com.thecodeinnovator.sudokuserver.model.ui.PuzzleUIModel;
+import com.thecodeinnovator.sudokuserver.specific.model.db.Puzzle;
+import com.thecodeinnovator.sudokuserver.specific.model.request.SavePuzzleRequestModel;
+import com.thecodeinnovator.sudokuserver.specific.model.ui.PuzzleUIModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
