@@ -36,19 +36,6 @@ public class HomeController {
         return result;
     }
 
-    // @GetMapping(value = "/get_slug")
-    // public HashMap<String, Object> getPuzzleWithSlug(@RequestParam("slug_id") String slugID) {
-    //     HashMap<String, Object> result = new HashMap<String, Object>();
-    //     try {
-    //         result.put("data", slugService.fetchPuzzleWithSlugID(slugID));
-    //         result.put("status", "success");
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //         result.put("status", "failed");
-    //     }
-    //     return result;
-    // }
-
     @GetMapping(value = "/get_by_id", produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, Object> getPuzzleByID(@RequestParam("id") String id) {
         HashMap<String, Object> result = new HashMap<String, Object>();

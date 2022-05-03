@@ -154,7 +154,9 @@ public class PuzzleService {
         model.setCreatedBy(puzzle.getCreatedBy());
         model.setCreatedOn(puzzle.getCreatedOn());
         model.setDifficulty(puzzle.getDifficulty());
+        
         model.setPuzzleData(puzzleDataInt);
+        
         model.setPuzzleHash(puzzleHashString);
         model.setSize(puzzle.getSize());
         model.setSlugId(puzzle.getSlugId());

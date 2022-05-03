@@ -7,13 +7,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.thecodeinnovator.sudokuserver.model.access.elements.PuzzleElementN;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElement1MapperService;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElement2MapperService;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElement3MapperService;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElement4MapperService;
-import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElement5MapperService;
+import com.thecodeinnovator.sudokuserver.model.access.PuzzleElementN;
 import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElementNMapperService;
+import com.thecodeinnovator.sudokuserver.service.mapping.PuzzleElementUtilityService;
 
 @Service
 public class MappedPuzzleElementHashService {
@@ -22,19 +18,7 @@ public class MappedPuzzleElementHashService {
     PuzzleElementMappingService puzzleElementMappingService;
 
     @Autowired
-    PuzzleElement1MapperService puzzleElement1MapperService;
-
-    @Autowired
-    PuzzleElement2MapperService puzzleElement2MapperService;
-
-    @Autowired
-    PuzzleElement3MapperService puzzleElement3MapperService;
-
-    @Autowired
-    PuzzleElement4MapperService puzzleElement4MapperService;
-
-    @Autowired
-    PuzzleElement5MapperService puzzleElement5MapperService;
+    PuzzleElementUtilityService puzzleElementUtilityService;
 
     @Autowired
     PuzzleElementNMapperService puzzleElementNMapperService;
@@ -42,32 +26,32 @@ public class MappedPuzzleElementHashService {
     public byte[] generatePuzzleHashFromPuzzle(String[][] puzzle, int size) throws NoSuchAlgorithmException {
         switch (size) {
             case 1:
-                return puzzleElement1MapperService.generatePuzzleHashFromPuzzleElement1List(
-                    puzzleElement1MapperService.getPuzzleElement1List(
+                return puzzleElementUtilityService.generatePuzzleHashFromPuzzleElement1List(
+                    puzzleElementUtilityService.getPuzzleElement1List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 2:
-                return puzzleElement2MapperService.generatePuzzleHashFromPuzzleElement2List(
-                    puzzleElement2MapperService.getPuzzleElement2List(
+                return puzzleElementUtilityService.generatePuzzleHashFromPuzzleElement2List(
+                    puzzleElementUtilityService.getPuzzleElement2List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 3:
-                return puzzleElement3MapperService.generatePuzzleHashFromPuzzleElement3List(
-                    puzzleElement3MapperService.getPuzzleElement3List(
+                return puzzleElementUtilityService.generatePuzzleHashFromPuzzleElement3List(
+                    puzzleElementUtilityService.getPuzzleElement3List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 4:
-                return puzzleElement4MapperService.generatePuzzleHashFromPuzzleElement4List(
-                    puzzleElement4MapperService.getPuzzleElement4List(
+                return puzzleElementUtilityService.generatePuzzleHashFromPuzzleElement4List(
+                    puzzleElementUtilityService.getPuzzleElement4List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 5:
-                return puzzleElement5MapperService.generatePuzzleHashFromPuzzleElement5List(
-                    puzzleElement5MapperService.getPuzzleElement5List(
+                return puzzleElementUtilityService.generatePuzzleHashFromPuzzleElement5List(
+                    puzzleElementUtilityService.getPuzzleElement5List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
@@ -78,32 +62,32 @@ public class MappedPuzzleElementHashService {
     public byte[] generatePositionHashFromPuzzle(String[][] puzzle, int size) throws NoSuchAlgorithmException {
         switch (size) {
             case 1:
-                return puzzleElement1MapperService.generatePositionHashFromPuzzleElement1List(
-                    puzzleElement1MapperService.getPuzzleElement1List(
+                return puzzleElementUtilityService.generatePositionHashFromPuzzleElement1List(
+                    puzzleElementUtilityService.getPuzzleElement1List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 2:
-                return puzzleElement2MapperService.generatePositionHashFromPuzzleElement2List(
-                    puzzleElement2MapperService.getPuzzleElement2List(
+                return puzzleElementUtilityService.generatePositionHashFromPuzzleElement2List(
+                    puzzleElementUtilityService.getPuzzleElement2List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 3:
-                return puzzleElement3MapperService.generatePositionHashFromPuzzleElement3List(
-                    puzzleElement3MapperService.getPuzzleElement3List(
+                return puzzleElementUtilityService.generatePositionHashFromPuzzleElement3List(
+                    puzzleElementUtilityService.getPuzzleElement3List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 4:
-                return puzzleElement4MapperService.generatePositionHashFromPuzzleElement4List(
-                    puzzleElement4MapperService.getPuzzleElement4List(
+                return puzzleElementUtilityService.generatePositionHashFromPuzzleElement4List(
+                    puzzleElementUtilityService.getPuzzleElement4List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 5:
-                return puzzleElement5MapperService.generatePositionHashFromPuzzleElement5List(
-                    puzzleElement5MapperService.getPuzzleElement5List(
+                return puzzleElementUtilityService.generatePositionHashFromPuzzleElement5List(
+                    puzzleElementUtilityService.getPuzzleElement5List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
@@ -114,32 +98,32 @@ public class MappedPuzzleElementHashService {
     public byte[] generateHoleHashFromPuzzle(String[][] puzzle, int size) throws NoSuchAlgorithmException {
         switch (size) {
             case 1:
-                return puzzleElement1MapperService.generateHoleHashFromPuzzleElement1List(
-                    puzzleElement1MapperService.getPuzzleElement1List(
+                return puzzleElementUtilityService.generateHoleHashFromPuzzleElement1List(
+                    puzzleElementUtilityService.getPuzzleElement1List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 2:
-                return puzzleElement2MapperService.generateHoleHashFromPuzzleElement2List(
-                    puzzleElement2MapperService.getPuzzleElement2List(
+                return puzzleElementUtilityService.generateHoleHashFromPuzzleElement2List(
+                    puzzleElementUtilityService.getPuzzleElement2List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 3:
-                return puzzleElement3MapperService.generateHoleHashFromPuzzleElement3List(
-                    puzzleElement3MapperService.getPuzzleElement3List(
+                return puzzleElementUtilityService.generateHoleHashFromPuzzleElement3List(
+                    puzzleElementUtilityService.getPuzzleElement3List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 4:
-                return puzzleElement4MapperService.generateHoleHashFromPuzzleElement4List(
-                    puzzleElement4MapperService.getPuzzleElement4List(
+                return puzzleElementUtilityService.generateHoleHashFromPuzzleElement4List(
+                    puzzleElementUtilityService.getPuzzleElement4List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 5:
-                return puzzleElement5MapperService.generateHoleHashFromPuzzleElement5List(
-                    puzzleElement5MapperService.getPuzzleElement5List(
+                return puzzleElementUtilityService.generateHoleHashFromPuzzleElement5List(
+                    puzzleElementUtilityService.getPuzzleElement5List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
@@ -164,32 +148,32 @@ public class MappedPuzzleElementHashService {
     public byte[] generatePuzzleDataFromPuzzle(String[][] puzzle, int size) {
         switch (size) {
             case 1:
-                return puzzleElement1MapperService.generatePuzzleDataFromPuzzleElement1List(
-                    puzzleElement1MapperService.getPuzzleElement1List(
+                return puzzleElementUtilityService.generatePuzzleDataFromPuzzleElement1List(
+                    puzzleElementUtilityService.getPuzzleElement1List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 2:
-                return puzzleElement2MapperService.generatePuzzleDataFromPuzzleElement2List(
-                    puzzleElement2MapperService.getPuzzleElement2List(
+                return puzzleElementUtilityService.generatePuzzleDataFromPuzzleElement2List(
+                    puzzleElementUtilityService.getPuzzleElement2List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 3:
-                return puzzleElement3MapperService.generatePuzzleDataFromPuzzleElement3List(
-                    puzzleElement3MapperService.getPuzzleElement3List(
+                return puzzleElementUtilityService.generatePuzzleDataFromPuzzleElement3List(
+                    puzzleElementUtilityService.getPuzzleElement3List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 4:
-                return puzzleElement4MapperService.generatePuzzleDataFromPuzzleElement4List(
-                    puzzleElement4MapperService.getPuzzleElement4List(
+                return puzzleElementUtilityService.generatePuzzleDataFromPuzzleElement4List(
+                    puzzleElementUtilityService.getPuzzleElement4List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );
             case 5:
-                return puzzleElement5MapperService.generatePuzzleDataFromPuzzleElement5List(
-                    puzzleElement5MapperService.getPuzzleElement5List(
+                return puzzleElementUtilityService.generatePuzzleDataFromPuzzleElement5List(
+                    puzzleElementUtilityService.getPuzzleElement5List(
                         this.getPuzzleElementList(puzzle, size)   
                     )
                 );

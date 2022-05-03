@@ -1,4 +1,4 @@
-package com.thecodeinnovator.sudokuserver.model.access.elements;
+package com.thecodeinnovator.sudokuserver.model.access;
 
 import com.thecodeinnovator.sudokuserver.enums.SudokuElementSize2;
 
